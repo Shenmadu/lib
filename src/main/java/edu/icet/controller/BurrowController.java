@@ -1,6 +1,7 @@
 package edu.icet.controller;
 
 import edu.icet.dto.BurrowDto;
+import edu.icet.dto.Response;
 import edu.icet.entity.Burrower;
 import edu.icet.service.BurrowService;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/burrow")
 @RequiredArgsConstructor
-public class burrowController {
+public class BurrowController {
     final BurrowService service;
 
     @PostMapping("/add")
@@ -25,7 +26,9 @@ public class burrowController {
        return service.getBurrowers();
     }
     @DeleteMapping("/{id}")
-    public boolean deleteBurower(@PathVariable Long id){
-        return service.deleteBurrower(id);
+    public Response deleteBurrower(@PathVariable Long id){
+         return service.deleteBurrower(id)?
+                 new Response("Burrower Removed"):
+                 new Response("Burrower not exist");
     }
 }
