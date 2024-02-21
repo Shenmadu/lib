@@ -12,6 +12,8 @@ import java.time.LocalDate;
 public class BurrowDto {
     private Long burrowId;
     private String burrowName;
-    private String isbn;
+    private String address;
+    private String contactNumber;
+    private String nic;
     private LocalDate date;
 }
