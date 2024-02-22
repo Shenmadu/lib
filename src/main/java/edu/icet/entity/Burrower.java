@@ -18,9 +18,11 @@ public class Burrower {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long burrowId;
-    private String burrowName;
-    private String address;
+    private String burrowerFirstName;
+    private String burrowerLastName;
+    private String address1;
+    private String address2;
     private String contactNumber;
-    private String nic;
-    private LocalDate date;
+    private String email;
+    private String country;
 }
