@@ -1,5 +1,5 @@
 package edu.icet.service.impl;
-import edu.icet.dto.BurrowDto;
+import edu.icet.dto.BurrowerDto;
 import edu.icet.entity.Burrower;
 import edu.icet.repository.BurrowerRepository;
 import edu.icet.service.BurrowService;
@@ -23,8 +23,8 @@ public class BurrowServiceImpl implements BurrowService {
     }
 
     @Override
-    public void addBurrower(BurrowDto burrowDto) {
-        Burrower entity = mapper.map(burrowDto, Burrower.class);
+    public void addBurrower(BurrowerDto burrowerDto) {
+        Burrower entity = mapper.map(burrowerDto, Burrower.class);
         repository.save(entity);
 
     }
@@ -41,5 +41,15 @@ public class BurrowServiceImpl implements BurrowService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public BurrowerDto findByUserName(String userName) {
+        return mapper.map(repository.findByUserName(userName),BurrowerDto.class);
+    }
+
+    @Override
+    public Boolean isExistsUserName(String userName) {
+        return repository.existsByUserName(userName);
     }
 }

@@ -20,6 +20,7 @@ public class Burrower {
     private Long burrowId;
     private String burrowerFirstName;
     private String burrowerLastName;
+    private String userName;
     private String address1;
     private String address2;
     private String contactNumber;

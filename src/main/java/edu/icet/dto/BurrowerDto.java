@@ -4,15 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
-@Data
-@AllArgsConstructor
+@Data@AllArgsConstructor
 @NoArgsConstructor
-public class BurrowDto {
+public class BurrowerDto {
     private Long burrowId;
     private String burrowerFirstName;
     private String burrowerLastName;
+    private String userName;
     private String address1;
     private String address2;
     private String contactNumber;

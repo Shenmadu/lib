@@ -1,6 +1,6 @@
 package edu.icet.controller;
 
-import edu.icet.dto.BurrowDto;
+import edu.icet.dto.BurrowerDto;
 import edu.icet.dto.Response;
 import edu.icet.entity.Burrower;
 import edu.icet.service.BurrowService;
@@ -17,8 +17,8 @@ public class BurrowController {
     final BurrowService service;
 
     @PostMapping("/add")
-    public void addBurrower(@RequestBody BurrowDto burrowDto){
-        service.addBurrower(burrowDto);
+    public void addBurrower(@RequestBody BurrowerDto burrowerDto){
+        service.addBurrower(burrowerDto);
     }
 
     @GetMapping("/get")
@@ -30,5 +30,13 @@ public class BurrowController {
          return service.deleteBurrower(id)?
                  new Response("Burrower Removed"):
                  new Response("Burrower not exist");
+    }
+    @GetMapping("/getburrower/{userName}")
+    public BurrowerDto findByUserName(@PathVariable String userName){
+        return service.findByUserName(userName);
+    }
+    @GetMapping("/is-exist/{userName}")
+    public Boolean isExistsUserName(@PathVariable String userName){
+        return service.isExistsUserName(userName);
     }
 }
