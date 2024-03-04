@@ -21,6 +21,7 @@ public class Burrower {
     private String burrowerFirstName;
     private String burrowerLastName;
     private String userName;
+    private String password;
     private String address1;
     private String address2;
     private String contactNumber;

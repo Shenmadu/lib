@@ -4,13 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data@AllArgsConstructor
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class BurrowerDto {
     private Long burrowId;
     private String burrowerFirstName;
     private String burrowerLastName;
     private String userName;
+    private String password;
     private String address1;
     private String address2;
     private String contactNumber;

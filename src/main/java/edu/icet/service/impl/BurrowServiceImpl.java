@@ -5,7 +5,7 @@ import edu.icet.repository.BurrowerRepository;
 import edu.icet.service.BurrowService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,13 +14,7 @@ import java.util.List;
 public class BurrowServiceImpl implements BurrowService {
 
     final BurrowerRepository repository;
-
-    ModelMapper mapper;
-
-    @Bean
-    public void run(){
-        this.mapper=new ModelMapper();
-    }
+    final ModelMapper mapper;
 
     @Override
     public void addBurrower(BurrowerDto burrowerDto) {
