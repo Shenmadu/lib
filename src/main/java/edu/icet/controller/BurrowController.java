@@ -1,9 +1,11 @@
 package edu.icet.controller;
 
 import edu.icet.dto.BurrowerDto;
+import edu.icet.dto.LoginDto;
 import edu.icet.dto.Response;
 import edu.icet.entity.Burrower;
 import edu.icet.service.BurrowService;
+import edu.icet.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +17,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BurrowController {
     final BurrowService service;
+    final LoginService loginService;
 
     @PostMapping("/add")
     public void addBurrower(@RequestBody BurrowerDto burrowerDto){
         service.addBurrower(burrowerDto);
+        loginService.insertLoginData(new LoginDto(burrowerDto.getEmail(),burrowerDto.getPassword()));
     }
 
     @GetMapping("/get")
